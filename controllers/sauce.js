@@ -139,44 +139,6 @@ exports.getAllSauce = (req, res, next) => {
   );
 };
 
-// setup sauce like/dislike function
-exports.likeSauce = (req, res, next) => {
-  // get user's like/dislike data
-  Sauce.findOne({
-      _id: req.params.id
-  }).then((sauce) => {
-      // Add 1 like to sauce
-      if (req.body.like === 1 && !sauce.usersLiked.includes(req.body.userId)) {
-          sauce.usersLiked.push(req.body.userId);
-          sauce.likes += 1;
-        }
-      // Add 1 dislike to sauce
-      if (req.body.like === -1 && !sauce.usersDisliked.includes(req.body.userId)) {
-          sauce.usersDisliked.push(req.body.userId);
-          sauce.dislikes += 1;
-        }
-      // Remove like and dislike of this user for sauce  
-      if (req.body.like === 0) {
-          // Remove like of this user for sauce          
-          if (sauce.usersLiked.includes(req.body.userId)) {
-              sauce.usersLiked.remove(req.body.userId);
-              sauce.likes += -1;}
-          // Remove dislike of this user for sauce 
-          if (sauce.usersDisliked.includes(req.body.userId)) {
-              sauce.usersDisliked.remove(req.body.userId);
-              sauce.dislikes += -1;}
-            }
-      // update database
-      Sauce.updateOne({_id: req.params.id}, sauce)
-          .then((sauce) => {
-              res.status(200).json(sauce);
-          })
-          .catch((error) => {
-              res.status(400).json({
-                  error: error
-              });
-          });
-  });
-};
+
 
 
