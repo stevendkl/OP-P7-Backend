@@ -1,4 +1,6 @@
-/images/*
-!/images/blank.png
 /node_modules
 .env
+images/*.jpg
+images/*.png
+images/*.jpeg    
+!images/blank.png
