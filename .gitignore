@@ -1,0 +1,4 @@
+/images/*
+!/images/blank.png
+/node_modules
+.env
