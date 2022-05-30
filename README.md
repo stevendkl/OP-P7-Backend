@@ -8,7 +8,7 @@ You will need to have `Node` and `MySQL` and `npm` installed locally on your mac
 
 ### Back end Installation ###
 
-Clone this repo. From the "back" folder of the project, run `npm install`.
+Clone this repo. From the root folder of the project, run `npm install`.
 Modify the `env.example` file and enter your information there, and rename it to `.env`.
 You can then run the server with `nodemon server`. 
 The schemas will be automatically created and visible in the database.

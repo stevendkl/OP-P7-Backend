@@ -31,7 +31,7 @@ const Postread = sequelize.define('postread', {
 );
 
 Postread.sync().then(() => {
-  console.log('success sync mysql read table!') 
+  console.log('success sync mysql read record table!') 
 });
 
 module.exports = Postread;
